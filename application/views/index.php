@@ -9,16 +9,26 @@
 <body>
 
 
-		<form class="form-signin" action="Home/login" method="POST">
+
+		<form class="form-signin" action="<?php echo base_url() ?>Home/login" method="POST">
       		
       		<h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
       		<label for="inputEmail" class="sr-only">Email Address</label>
-      		<input type="email" name="Email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br>
+      		<input type="email" name="Email" id="inputEmail" class="form-control" value="kartik@gmail.com" placeholder="Email address" required autofocus><br>
 			<label for="inputEmail" class="sr-only">Email Password</label>
       		<input type="password" name="Password" id="inputEmail" class="form-control" placeholder="Email Password" required autofocus><br>
     
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+     <a href="<?php echo base_url()?>Home/register">Register</a>
+	  <p>
+			<?php $msg = $this->session->flashdata('msg');
+	         if ($msg != '')
+			 {
+	             echo  '<span style="color:red">'.$msg.'</span>';
+	         }
+	
+			?>
+</p> 
     </form>
 	
 

@@ -41,7 +41,7 @@ class Checkdb extends CI_Model {
                     'constraint' => 211,
                     'NULL' => true
                 ),
-                'Occuupation' => array(
+                'Occupation' => array(
                     'type' => 'varchar',
                     'constraint' => 211,
                     'NULL' => true
