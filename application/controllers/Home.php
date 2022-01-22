@@ -71,6 +71,8 @@ class Home extends CI_Controller {
 
 	public function profile()
 	{
+		if($this->AgentModel->authorise()==true){
+
 		$agent = $this->session->userdata('userAuth');
 		$Email = $agent['Email'];
 		$agentTable = 'agents';
@@ -85,6 +87,10 @@ class Home extends CI_Controller {
 
 		$this->load->view('profile',$getService);
 	}
+	else{
+		redirect(base_url().'Home/index');
+	}
+}
 
 	##addInsurance
 

@@ -41,6 +41,19 @@ class AgentModel extends CI_Model {
                 return $this->db->update($tablename, $data);
             }
 
+            public function authorise()
+            {
+          
+                 $user = $this->session->userdata('userAuth');
+              if(!empty($user)){
+                  return true;
+              }else{
+                  return false;
+              }
+        
+               
+         }
+
 
 
 
