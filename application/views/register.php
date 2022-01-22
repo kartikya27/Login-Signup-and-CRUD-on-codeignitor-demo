@@ -16,6 +16,9 @@
             <input type="text" name="PhoneNum" id="inputEmail" class="form-control" value="9876543210" placeholder="Phone" required autofocus><br>
             <input type="text" name="Occupation" id="inputEmail" class="form-control" value="job" placeholder="Occupation" required autofocus><br>
       		<input type="email" name="Email" id="inputEmail" class="form-control" value="kartik@gmail.com" placeholder="Email address" required autofocus><br>
+           
+              <span style="color:red"><?php echo strip_tags(form_error('Email')); ?> </span> 
+
             <input type="text" name="AadharPanNumber" id="inputEmail" class="form-control" value="9874511212315648" placeholder="Aadhar Number" required autofocus><br>
             <input type="text" name="AnnualIncome" id="inputEmail" class="form-control" value="1 Lac" placeholder="Annual Income" required autofocus><br>
             <input type="text" name="Address" id="inputEmail" class="form-control" value="Jaipur" placeholder="Address" required autofocus><br>
@@ -23,15 +26,7 @@
     
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
      <a href="<?php echo base_url()?>Home/index">Login</a>
-	  <p>
-			<?php $msg = $this->session->flashdata('msg');
-	         if ($msg != '')
-			 {
-	             echo  '<span style="color:red">'.$msg.'</span>';
-	         }
-	
-			?>
-</p> 
+	 
     </form>
 	
 

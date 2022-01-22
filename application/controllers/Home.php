@@ -53,22 +53,80 @@ class Home extends CI_Controller {
 		## Return To Register
 		if($this->form_validation->run() == false)
 		{
-			redirect(base_url().'Home/register');
+			$this->load->view('register');
+			// redirect(base_url().'Home/');
 		}
 		## Submit data to DB
 		else{
 			$data = $this->input->post();
 			$table = 'agents';
+			$data['Password'] = md5($this->input->post('Password'));
 			$this->AgentModel->submitData($data,$table);
 			$this->session->set_flashdata('msg','Successfully Registered. Please Login');
 			redirect(base_url().'Home/index');
+			// $this->load->view('index');
 		}
 		
 	}
 
 	public function profile()
 	{
-		$this->load->view('profile');
+		$agent = $this->session->userdata('userAuth');
+		$Email = $agent['Email'];
+		$agentTable = 'agents';
+		$getAgentID = $this->AgentModel->getRow($agentTable,$Email);
+		$agentID = $data['agentID'] = $getAgentID['id'];
+		$table = 'insurance';
+		$getService['allService'] = $this->AgentModel->getService($table,$agentID);
+
+		if(empty($getService)){
+			$getService = '';
+		}
+
+		$this->load->view('profile',$getService);
+	}
+
+	##addInsurance
+
+	public function addInsurance()
+	{
+		$agent = $this->session->userdata('userAuth');
+		$Email = $agent['Email'];
+		$agentTable = 'agents';
+		$getAgentID = $this->AgentModel->getRow($agentTable,$Email);
+		
+		$data = $this->input->post();
+		$data['agentID'] = $getAgentID['id'];
+		$data['insuranceID'] = rand(111,999);
+		$table = 'insurance';
+
+		$this->AgentModel->submitData($data,$table);
+		redirect(base_url().'Home/profile');
+
+	}
+
+	### deleteSingle
+	public function deleteSingle	()
+	{
+		$id=$this->input->post('id');
+        $tablename=$this->input->post('tablename');
+        $this->AgentModel->deleteSingle($id,$tablename);
+
+	}
+
+
+	#editservice
+	public function editservice()
+	{
+		$tablename="insurance"; 
+		
+		$data = $this->input->post();
+		$id=$this->input->post('id');
+
+	
+        $this->AgentModel->updateData($id,$tablename,$data);
+		redirect(base_url().'Home/profile'); 
+
 	}
 
 
