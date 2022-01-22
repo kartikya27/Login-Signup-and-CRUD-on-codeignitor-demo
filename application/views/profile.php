@@ -12,7 +12,7 @@
 <div class="container" >
 <div class="row" >
    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Insurance</button>
-   <button>Edit Insurance</button>
+   <a href="<?php echo base_url(); ?>Home/logout">
 </div>
 </div>
 <br>
