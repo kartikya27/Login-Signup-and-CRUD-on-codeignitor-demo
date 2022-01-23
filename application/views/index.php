@@ -7,7 +7,7 @@
     <link href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css" rel="stylesheet">
 </head>
 <body>
-Hello
+
 
 
 		<form class="form-signin" action="<?php echo base_url() ?>Home/login" method="POST">
