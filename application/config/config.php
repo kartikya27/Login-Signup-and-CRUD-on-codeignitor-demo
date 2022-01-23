@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/login-signup-codeignitor/Login-Signup-on-codeignitor-demo/';
+$config['base_url'] = 'http://portfolio.wrkva.xyz/Login-Signup-and-CRUD-on-codeignitor-demo/';
 
 /*
 |--------------------------------------------------------------------------
