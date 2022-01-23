@@ -8,7 +8,7 @@
 </head>
 <body>
 
-
+hello2
 
 		<form class="form-signin" action="<?php echo base_url() ?>Home/login" method="POST">
       		
